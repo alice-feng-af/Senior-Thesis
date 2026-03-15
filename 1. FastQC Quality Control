@@ -1,6 +1,29 @@
-%run on terminal
+#!/bin/bash
+set -e
+set -u
 
+#slurm interactive session allocation
+srun --pty \
+    -c 6 \
+    -p interactive \
+    --time=3:00:00 \
+    --mem=32G \
+    /bin/bash << 'EOF'
+
+#load fastqc module
 module load fastqc/0.12.1
-mkdir -p ~/fastqcresults
-cd ~/01.RawData %replace with folder containing raw fastq files
-fastqc -o ~/fastqcresults/ -t 6 *.fq.gz
+
+#setup directories 
+RESULTS_DIR= ***
+RAW_DATA_DIR= ***
+
+#create results directory
+mkdir -p "$RESULTS_DIR"
+
+#navigate to raw data directory with fastq files
+cd "$RAW_DATA_DIR"
+
+#run fastqc
+fastqc -o "$RESULTS_DIR" -t 6 *.fq.gz
+
+EOF
