@@ -1,0 +1,4 @@
+module load fastqc/0.12.1
+mkdir -p ~/fastqcresults
+cd ~/01.RawData
+fastqc -o ~/fastqcresults/ -t 6 *.fq.gz
