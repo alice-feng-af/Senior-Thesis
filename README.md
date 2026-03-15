@@ -9,8 +9,8 @@ A8-A14: Kras/Trp53/CMTR2 (KPC)
 Mouse reference genome: GRCm38/mm10
 
 Pipeline Steps
-1. Data download and quality control
-2. STAR alignment
+1. FASTQC quality control
+2. STAR alignment and Qualimap
 3. Feature counting
 4. Differential expression analysis with DESeq2
 5. Visualization
