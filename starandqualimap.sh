@@ -29,7 +29,7 @@ mkdir -p "$QUALIMAP_BASE_DIR"
 
 #unzip reference genome files
 gunzip -c "$GENOME_FA_GZ" > "$GENOME_FA"
-gunzip -c "$GENOME_FA_GZ" > "$GENOME_FA"
+gunzip -c "$GENOME_GTF_GZ" > "$GENOME_GTF"
 
 #build star genome index
 STAR --runThreadN 6 \
