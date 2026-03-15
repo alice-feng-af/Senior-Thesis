@@ -1,4 +1,6 @@
+%run on terminal
+
 module load fastqc/0.12.1
 mkdir -p ~/fastqcresults
-cd ~/01.RawData
+cd ~/01.RawData %replace with folder containing raw fastq files
 fastqc -o ~/fastqcresults/ -t 6 *.fq.gz
