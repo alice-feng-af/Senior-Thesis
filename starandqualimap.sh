@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=star
 #SBATCH --partition=normal,bigmem,long
-#SBATCH --ntasks=4
+#SBATCH --ntasks=6
 #SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=48G
 #SBATCH --output=log%J.out
