@@ -38,11 +38,11 @@ do
     echo "Processing sample $SAMPLE"
 
     qualimap rnaseq \
-      --runThreadN 6\
       -bam "$STAR_RESULTS_DIR/${SAMPLE}_Aligned.sortedByCoord.out.bam" \
       -gtf "$GENOME_GTF" \
       -outdir "$QUALIMAP_RESULTS_DIR" \
       -a proportional \
       -p non-strand-specific \
+      -pe \
       --java-mem-size=16G
 done
