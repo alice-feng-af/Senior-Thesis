@@ -11,6 +11,11 @@
 module load STAR/2.7.10a
 module load Qualimap/2.2.1
 
+#use java headless
+export JAVA_TOOL_OPTIONS="-Djava.awt.headless=true"
+unset DISPLAY
+export _JAVA_OPTIONS="-Djava.awt.headless=true"
+
 #define paths
 GENOME_FA_GZ=~/04.Ref/genome.fa.gz
 GENOME_GTF_GZ=~/04.Ref/genome.gtf.gz
