@@ -10,7 +10,7 @@ Mouse reference genome: GRCm38/mm10
 
 Pipeline Steps
 1. FASTQC Quality Control
-2. STAR Alignment and Qualimap
-3. Feature Counting
-4. Differential Expression Analysis
-5. Visualization
+2. STAR Alignment
+3. Qualimap
+4. Feature Counting
+5. Differential Expression Analysis and Visualization
