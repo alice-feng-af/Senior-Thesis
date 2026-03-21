@@ -155,11 +155,11 @@ df <- df %>%
   mutate(
     baseMean_plot = pmax(baseMean, 1),
     status = case_when(
-        #upregulated in KPC = significant, log2FC >=1, mean expression >= 1e2
+        #upregulated in KPC 
         baseMean_plot >= mean_cutoff &
         !is.na(padj) & padj < padj_cutoff &
         log2FoldChange >= log2FoldChange_cutoff  ~ "Upregulated in KPC",
-        #downregulated in KPC = significant, log2FC <= -1, mean expression >= 1e2
+        #downregulated in KPC
         baseMean_plot >= mean_cutoff &
         !is.na(padj) & padj < padj_cutoff &
         log2FoldChange <= -1*log2FoldChange_cutoff ~ "Downregulated in KPC",
