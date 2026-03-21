@@ -57,7 +57,7 @@ res <- results(dds, contrast = c("condition", "KPC", "KP"))
 #order genes by adjusted p-value, most significant first
 resOrdered <- res[order(res$padj), ]
 ##########################################
-#PCA plot using top 1000 most variable genes
+#Figure 11A: PCA plot using top 1000 most variable genes
 ##########################################
 #apply variance stabilizing transformation for visualization
 vsd <- vst(dds, blind = FALSE)
@@ -92,7 +92,7 @@ d <- dist(X, method = "euclidean") #euclidean distance between samples in PCA sp
 sil <- silhouette(as.integer(df$condition), d)
 mean(sil[, "sil_width"]) #closer to 1 = better clustering
 ##########################################
-#heatmap of top 1000 most significant genes
+#Figure 11B: heatmap of top 1000 most significant genes
 ##########################################
 library(pheatmap)
 library(matrixStats)
@@ -128,7 +128,7 @@ d <- dist(X, method = "euclidean") #euclidean distance
 sil <- silhouette(as.integer(ann_ordered$condition), d)
 mean(sil[, "sil_width"])
 ##########################################
-#MA plot
+#Figure 12A: MA plot
 ##########################################
 library(ggrepel)
 library(dplyr)
@@ -214,7 +214,7 @@ p <- ggplot(df, aes(x = baseMean_plot, y = log2FoldChange)) +
 
 print(p)
 ##########################################
-#bar plot of differentially expressed genes that satisfied thresholds
+#Figure 12B: bar plot of differentially expressed genes that satisfied thresholds
 ##########################################
 #add direction column to deg_genes for coloring purposes
 deg_genes$direction <- ifelse(deg_genes$log2FoldChange > 0, "Positive", "Negative")
@@ -259,7 +259,7 @@ ggplot(deg_genes, aes(x = label, y = log2FoldChange, fill = direction)) +
   )
 
 ##########################################
-#heatmap of genes that satisfied thresholds
+#Figure 12C: heatmap of genes that satisfied thresholds
 ##########################################
 #build matrix with ENSEMBL rownames
 mat <- assay(vsd)
@@ -290,7 +290,7 @@ pheatmap(
 )
 
 ##########################################
-#PCA of genes that satisfied thresholds
+#Figure 12D: PCA of genes that satisfied thresholds
 ##########################################
 #perform PCA on selected genes
 pca_res <- prcomp(t(mat_deg), center = TRUE, scale. = FALSE)
@@ -323,7 +323,7 @@ ggplot(pca_df, aes(x = PC1, y = PC2, color = condition, label = sample)) +
   )
 
 ##########################################
-#pathway analysis
+#Figure 13: pathway analysis
 ##########################################
 library(clusterProfiler)
 library(enrichplot)
@@ -382,7 +382,7 @@ gsea_go_bp <- gseGO(
   verbose      = FALSE
 )
 
-#create dotplot of top GO results
+#Figure 13A: create dotplot of top GO results
 dotplot(gsea_go_bp, showCategory = 20) +
   scale_y_discrete(labels = function(x) str_wrap(x, width = 60)) +
   theme_classic(base_size = 14) +
@@ -400,7 +400,7 @@ gsea_kegg <- gseKEGG(
   verbose      = FALSE
 )
 
-#create dotplot of top KEGG results
+#Figure 13B: create dotplot of top KEGG results
 dotplot(gsea_kegg, showCategory = 20) +
   scale_y_discrete(labels = function(x) str_wrap(x, width = 60)) +
   theme_classic(base_size = 14) +
@@ -419,7 +419,7 @@ gsea_reactome <- gsePathway(
   verbose      = FALSE
 )
 
-#create dotplot of top Reactome results
+#Figure 13C: create dotplot of top Reactome results
 dotplot(gsea_reactome, showCategory = 10) +
   scale_y_discrete(labels = function(x) str_wrap(x, width = 50)) +
   theme_classic(base_size = 14) +
