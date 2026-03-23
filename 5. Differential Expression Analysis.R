@@ -373,7 +373,6 @@ gsea_go_bp <- gseGO(
   keyType      = "ENTREZID",
   ont          = "BP", #biological process ontology
   minGSSize    = 10,
-  maxGSSize    = 500,
   pvalueCutoff = 0.05,
   verbose      = FALSE
 )
@@ -411,6 +410,7 @@ library(ReactomePA)
 gsea_reactome <- gsePathway(
   geneList     = geneList_entrez,
   organism     = "mouse",
+  minGSSize    = 10,
   pvalueCutoff = 0.05,
   verbose      = FALSE
 )
