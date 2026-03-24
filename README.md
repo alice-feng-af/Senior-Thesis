@@ -1,6 +1,6 @@
-CMTR2 RNA-seq Analysis Pipeline
+Cmtr2 RNA-seq Analysis Pipeline
 
-This repository contains the complete analysis pipeline for RNA-seq data comparing Kras/Trp53/Cmtr2 vs Kras/Trp53 conditions in Mus musculus (GRCm38/mm10).
+This repository contains the complete analysis pipeline for RNA-seq data comparing Kras/Trp53/Cmtr2 vs Kras/Trp53 conditions in Mus musculus (GRCm39/mm39).
 
 Overview: <br />
 14 samples (A1-A14) <br />
