@@ -5,8 +5,8 @@ This repository contains the complete analysis pipeline for RNA-seq data compari
 Overview: <br />
 14 samples (A1-A14) <br />
 A1-A7: Kras/Trp53 (KP) <br />
-A8-A14: Kras/Trp53/CMTR2 (KPC) <br />
-Mouse reference genome: GRCm38/mm10 <br />
+A8-A14: Kras/Trp53/Cmtr2 (KPC) <br />
+Mouse reference genome: GRCm39/mm39 <br />
 
 Pipeline Steps
 1. FastQC Quality Control (1. fastqc.sh) <br />
